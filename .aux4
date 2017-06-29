@@ -6,10 +6,11 @@
         {
           "value": "clean",
           "execute": [
-            "rm -rf $directory"
+            "rm -rf $directory",
+            "log:Directory was removed successfully"
           ],
           "help": {
-            "description": "Deploy the current version of website to the github pages",
+            "description": "Clean the temporary deploy directory",
             "variables": [
               {
                 "name": "directory",
@@ -30,7 +31,8 @@
             "cp -r build/* ${directory}/",
             "git --git-dir ${directory}/.git --work-tree ${directory} add ${directory}/.",
             "git --git-dir ${directory}/.git --work-tree ${directory} commit -m '${message}'",
-            "git --git-dir ${directory}/.git --work-tree ${directory} push"
+            "git --git-dir ${directory}/.git --work-tree ${directory} push",
+            "log:The website was deployed successfully"
           ],
           "help": {
             "description": "Deploy the current version of website to the github pages",
