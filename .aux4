@@ -1,19 +1,12 @@
 {
   "profiles": [
     {
-      "name": "matrix",
+      "name": "main",
       "commands": [
         {
-          "value": "deploy",
+          "value": "clean",
           "execute": [
-            "mkdir $directory",
-            "git clone https://github.com/DefinityLabs/definitylabs.github.io.git $directory",
-            "npm run build",
-            "cp -r build/* ${directory}/*",
-            "git --git-dir=${directory}/.git --work-tree=${directory} add ${directory}/."
-            "git --git-dir=${directory}/.git --work-tree=${directory} commit -m '${message}'"
-            "git --git-dir=${directory}/.git --work-tree=${directory} push"
-            "rm -rf ${directory}"
+            "rm -rf $directory"
           ],
           "help": {
             "description": "Deploy the current version of website to the github pages",
@@ -21,7 +14,31 @@
               {
                 "name": "directory",
                 "text": "Temporary directory to clone the website repository",
-                "default": "~/.definity-website/"
+                "default": "~/.definity-website"
+              }
+            ]
+          }
+        },
+        {
+          "value": "deploy",
+          "execute": [
+            "mkdir $directory",
+            "git clone https://github.com/DefinityLabs/definitylabs.github.io.git $directory",
+            "rm -rf ${directory}/static",
+            "rm -rf build",
+            "npm run build",
+            "cp -r build/* ${directory}/",
+            "git --git-dir ${directory}/.git --work-tree ${directory} add ${directory}/.",
+            "git --git-dir ${directory}/.git --work-tree ${directory} commit -m '${message}'",
+            "git --git-dir ${directory}/.git --work-tree ${directory} push"
+          ],
+          "help": {
+            "description": "Deploy the current version of website to the github pages",
+            "variables": [
+              {
+                "name": "directory",
+                "text": "Temporary directory to clone the website repository",
+                "default": "~/.definity-website"
               },
               {
                 "name": "message",
