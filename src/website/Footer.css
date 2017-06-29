@@ -1,0 +1,9 @@
+footer .copyright {
+  padding: 10px 0;
+  border-top: solid 1px #ccc;
+}
+
+footer .copyright p {
+  margin: 0;
+  font-size: 12px;
+}

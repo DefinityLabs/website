@@ -1,0 +1,24 @@
+.site-wrapper {
+  display: table;
+  width: 100%;
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  min-height: 700px;
+}
+
+.site-wrapper-inner {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 30rem;
+}
+
+.cover {
+  padding: 0 1.5rem;
+}

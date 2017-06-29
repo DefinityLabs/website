@@ -1,0 +1,14 @@
+.social {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.social li a {
+  font-size: 20px;
+}

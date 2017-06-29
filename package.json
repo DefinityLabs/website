@@ -1,0 +1,33 @@
+{
+  "name": "definitylabs-webiste",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://definitylabs.github.io/",
+  "author": "Definity Labs",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DefinityLabs/website.git"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "font-awesome": "^4.7.0",
+    "gh-pages": "^1.0.0",
+    "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-transition-group": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "reactstrap": "^4.6.2"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
