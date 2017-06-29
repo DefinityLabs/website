@@ -30,15 +30,15 @@ class App extends Component {
         <Section>
           <Card>
             <h3>Learn</h3>
-            <p>Get smart on game-changing software practices and the Pivotal products that increase your chance of success.</p>
+            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
           </Card>
           <Card>
             <h3>Learn</h3>
-            <p>Get smart on game-changing software practices and the Pivotal products that increase your chance of success.</p>
+            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
           </Card>
           <Card>
             <h3>Learn</h3>
-            <p>Get smart on game-changing software practices and the Pivotal products that increase your chance of success.</p>
+            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
           </Card>
         </Section>
         <Footer>

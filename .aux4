@@ -1,0 +1,37 @@
+{
+  "profiles": [
+    {
+      "name": "matrix",
+      "commands": [
+        {
+          "value": "deploy",
+          "execute": [
+            "mkdir $directory",
+            "git clone https://github.com/DefinityLabs/definitylabs.github.io.git $directory",
+            "npm run build",
+            "cp -r build/* ${directory}/*",
+            "git --git-dir=${directory}/.git --work-tree=${directory} add ${directory}/."
+            "git --git-dir=${directory}/.git --work-tree=${directory} commit -m '${message}'"
+            "git --git-dir=${directory}/.git --work-tree=${directory} push"
+            "rm -rf ${directory}"
+          ],
+          "help": {
+            "description": "Deploy the current version of website to the github pages",
+            "variables": [
+              {
+                "name": "directory",
+                "text": "Temporary directory to clone the website repository",
+                "default": "~/.definity-website/"
+              },
+              {
+                "name": "message",
+                "text": "Commit Message",
+                "default": "Website Changes"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
