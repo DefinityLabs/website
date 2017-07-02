@@ -5,11 +5,12 @@ class Social extends Component {
   render() {
     let links = [];
 
+    let i = 0;
     let properties = Object.keys(this.props);
     properties.forEach((property) => {
       let iconClassName = `fa fa-${property}`;
       links.push(
-        <li>
+        <li key={++i}>
           <a href={this.props[property]} target="_blank" rel="noopener noreferrer">
             <i className={iconClassName} />
           </a>

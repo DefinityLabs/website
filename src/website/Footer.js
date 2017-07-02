@@ -9,7 +9,14 @@ class Footer extends Component {
         <div className="container">
           {this.props.children}
           <div className="copyright">
-            <p>&copy; Copyright {year} Definity Software, Inc. All Rights Reserved</p>
+            <div className="row">
+              <div className="col-md-6">
+                <p>&copy; Copyright {year} Definity Software, Inc. All Rights Reserved</p>
+              </div>
+              <div className="col-md-6 text-right">
+                <a href="/about">About</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

@@ -1,9 +1,17 @@
+footer {
+  padding-top: 40px;
+  border-top: solid 1px #dcdcdc;
+  background-color: #efefef;
+}
+
 footer .copyright {
-  padding: 10px 0;
-  border-top: solid 1px #ccc;
+  padding: 15px 0;
+  border-top: solid 1px #dcdcdc;
+  font-size: 14px;
 }
 
 footer .copyright p {
   margin: 0;
   font-size: 12px;
+  color: 586069;
 }

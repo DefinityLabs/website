@@ -3,8 +3,9 @@ import './Cover.css';
 
 class Cover extends Component {
   render() {
-    let style = {};
-    style['background-image'] = `url(${this.props.image})`
+    let style = {
+      backgroundImage: `url(${this.props.image})`
+    };
 
     return (
       <div className="site-wrapper" style={style}>

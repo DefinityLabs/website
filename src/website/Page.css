@@ -1,0 +1,13 @@
+.page {
+
+}
+
+.page .title {
+  padding: 40px 0;
+  background-color: #1f242a;
+  color: #fff;
+}
+
+.page .title h1 {
+  font-weight: 300;
+}
