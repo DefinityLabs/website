@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavbarToggler, Collapse } from 'reactstrap';
+import { Navbar, NavbarBrand, NavbarToggler, Collapse } from 'reactstrap';
+
+import './Header.css';
 
 class Header extends Component {
   constructor(props) {
@@ -19,11 +21,9 @@ class Header extends Component {
       <header>
         <Navbar color="faded" light toggleable>
           <NavbarToggler right onClick={this.toggle} />
-          <a className="navbar-brand" href=".">Navbar</a>
+          <NavbarBrand href="/"><img src={this.props.image} alt="definity" /></NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              {this.props.children}
-            </Nav>
+            {this.props.children}
           </Collapse>
         </Navbar>
       </header>

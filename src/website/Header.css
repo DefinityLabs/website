@@ -1,0 +1,8 @@
+.navbar .nav-item a {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.navbar-brand img {
+  height: 50px;
+}

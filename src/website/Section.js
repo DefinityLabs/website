@@ -3,14 +3,11 @@ import './Section.css';
 
 class Section extends Component {
   render() {
-    let style = {};
-    style['background-image'] = `url(${this.props.image})`
+    let className = `section row align-items-center ${this.props.className}`;
 
     return (
-      <div className="section">
-        <div className="">
-          {this.props.children}
-        </div>
+      <div className={className}>
+        {this.props.children}
       </div>
     );
   }
@@ -22,10 +19,8 @@ class Card extends Component {
     style['background-image'] = `url(${this.props.image})`
 
     return (
-      <div className="card">
-        <div className="">
-          {this.props.children}
-        </div>
+      <div className="card col">
+        {this.props.children}
       </div>
     );
   }

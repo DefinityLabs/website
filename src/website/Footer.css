@@ -7,11 +7,10 @@ footer {
 footer .copyright {
   padding: 15px 0;
   border-top: solid 1px #dcdcdc;
-  font-size: 14px;
+  font-size: 1.1em;
 }
 
 footer .copyright p {
   margin: 0;
-  font-size: 12px;
   color: 586069;
 }

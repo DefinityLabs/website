@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Cover from '../website/Cover';
 import {Page} from '../website/Page';
+import Separator from '../website/Separator';
 import {Section, Card} from '../website/Section';
 
-import coverImage from '../website/cover.jpg';
+import coverImage from '../website/home.jpg';
 
 class HomePage extends Component {
   render() {
@@ -21,6 +22,17 @@ class HomePage extends Component {
             <h3>Learn</h3>
             <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
           </Card>
+          <Card>
+            <h3>Learn</h3>
+            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
+          </Card>
+          <Card>
+            <h3>Learn</h3>
+            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
+          </Card>
+        </Section>
+        <Separator/>
+        <Section>
           <Card>
             <h3>Learn</h3>
             <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>

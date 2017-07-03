@@ -1,0 +1,32 @@
+.section {
+  min-height: 300px;
+}
+
+.section.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section.section-inverse {
+  background-color: #1f242a;
+  color: #fff;
+}
+
+.section .card {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.section .card h3 {
+  font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Segoe UI, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+}
+
+.section p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.4em;
+  color: #4e5665;
+}
