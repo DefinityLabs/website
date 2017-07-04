@@ -4,18 +4,22 @@ import {Page} from '../website/Page';
 import Separator from '../website/Separator';
 import {Section, Card} from '../website/Section';
 
-import coverImage from '../website/home.jpg';
+import coverImage from '../website/automation.png';
 
 class HomePage extends Component {
   render() {
     return (
       <Page>
         <Cover image={coverImage}>
-          <h1 className="cover-heading">
-            Cover your page.
-            Cover your page.
-            Cover your page.
-          </h1>
+          <div className="cover-glass text-right">
+            <div className="row">
+              <div className="col-12 col-md-5 offset-md-7">
+                <h1 className="cover-heading">
+                  automate the <small>small things</small> that make a <strong>big difference</strong>
+                </h1>
+              </div>
+            </div>
+          </div>
         </Cover>
         <Section>
           <Card>

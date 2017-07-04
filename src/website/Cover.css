@@ -1,24 +1,30 @@
 .site-wrapper {
   display: table;
+  margin-top: -80px;
   width: 100%;
   max-width: 100%;
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
-  min-height: 700px;
+  min-height: 750px;
 }
 
 .site-wrapper-inner {
-  vertical-align: middle;
+  vertical-align: top;
   display: table-cell;
 }
 
 .cover-container {
   margin-right: auto;
   margin-left: auto;
-  width: 30rem;
 }
 
 .cover {
   padding: 0 1.5rem;
+}
+
+.cover-glass {
+  margin-top: 100px;
+  text-align: right;
+  color: #333;
 }

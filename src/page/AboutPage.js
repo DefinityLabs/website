@@ -7,7 +7,7 @@ class AboutPage extends Component {
       <Page>
         <Title>
           <div className="container">
-            <h1>Definity <small>a Open Source Software organization</small></h1>
+            <h1>Definity <small>an Open Source Software organization</small></h1>
           </div>
         </Title>
       </Page>

@@ -7,3 +7,19 @@ body {
 a {
   color: #4267b2;
 }
+
+.cover-heading {
+  font-size: 3.5em;
+  font-weight: 300;
+  color: #666;
+}
+
+.cover-heading small {
+  font-size: 70%;
+  color: #444;
+}
+
+.cover-heading strong {
+  font-size: 120%;
+  color: #444;
+}

@@ -1,6 +1,14 @@
-.navbar .nav-item a {
+.navbar.bg-faded {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar .nav-item .nav-link {
   font-size: 1.5em;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+.navbar-light .navbar-nav .nav-item .nav-link {
+  color: #444;
 }
 
 .navbar-brand img {

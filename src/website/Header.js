@@ -19,7 +19,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <Navbar color="faded" light toggleable>
+        <Navbar color="faded" className="sticky-top" light toggleable>
           <NavbarToggler right onClick={this.toggle} />
           <NavbarBrand href="/"><img src={this.props.image} alt="definity" /></NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
