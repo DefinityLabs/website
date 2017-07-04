@@ -32,6 +32,7 @@
             "git --git-dir ${directory}/.git --work-tree ${directory} add ${directory}/.",
             "git --git-dir ${directory}/.git --work-tree ${directory} commit -m '${message}'",
             "git --git-dir ${directory}/.git --work-tree ${directory} push",
+            "rm -rf $directory",
             "log:The website was deployed successfully"
           ],
           "help": {
