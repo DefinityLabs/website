@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Router, Route, Switch} from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import createHistory from 'history/createHashHistory';
 
 import HomePage from './page/HomePage';
 import AboutPage from './page/AboutPage';
