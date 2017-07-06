@@ -7,7 +7,7 @@ class ProductListPage extends Component {
       <Page>
         <Title>
           <div className="container">
-            <h1>Products <small>feel free to use & contribute</small></h1>
+            <h1>Products <small>are free to use & contribute</small></h1>
           </div>
         </Title>
       </Page>

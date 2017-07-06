@@ -26,4 +26,17 @@ class Card extends Component {
   }
 }
 
-export { Section, Card };
+class Billboard extends Component {
+  render() {
+    let style = {};
+    style['background-image'] = `url(${this.props.image})`
+
+    return (
+      <div className="billboard col">
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+export { Section, Card, Billboard };

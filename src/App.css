@@ -24,3 +24,11 @@ a {
   font-size: 120%;
   color: #444;
 }
+
+span.coding {
+  font-family: monospace;
+}
+
+small {
+  font-size: 70%;
+}
