@@ -17,10 +17,15 @@ class App extends Component {
         <Header image={logo}>
           <Nav navbar>
             <NavItem>
+              <NavLink href="#/products">Products</NavLink>
+            </NavItem>
+          </Nav>
+          <Nav navbar className="ml-auto">
+            <NavItem>
               <NavLink href="#/about-us">About Us</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#/products">Products</NavLink>
+              <NavLink href="#/contributors">Contributors</NavLink>
             </NavItem>
           </Nav>
         </Header>

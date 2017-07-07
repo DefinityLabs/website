@@ -18,8 +18,10 @@ class Card extends Component {
     let style = {};
     style['background-image'] = `url(${this.props.image})`
 
+    let className = `card col-md-4 col-sm-12 ${this.props.className}`;
+
     return (
-      <div className="card col">
+      <div className={className}>
         {this.props.children}
       </div>
     );
@@ -31,8 +33,10 @@ class Billboard extends Component {
     let style = {};
     style['background-image'] = `url(${this.props.image})`
 
+    let className = `billboard col ${this.props.className}`;
+
     return (
-      <div className="billboard col">
+      <div className={className}>
         {this.props.children}
       </div>
     );

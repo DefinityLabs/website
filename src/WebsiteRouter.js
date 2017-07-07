@@ -4,6 +4,7 @@ import createHistory from 'history/createHashHistory';
 
 import HomePage from './page/HomePage';
 import AboutPage from './page/AboutPage';
+import ContributorPage from './page/ContributorPage';
 import ProductListPage from './page/ProductListPage';
 import NotFoundPage from './page/NotFoundPage';
 
@@ -17,6 +18,7 @@ class WebsiteRouter extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/about-us" component={AboutPage} />
           <Route path="/products" component={ProductListPage} />
+          <Route path="/contributors" component={ContributorPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </Router>

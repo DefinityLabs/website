@@ -13,8 +13,9 @@ class Footer extends Component {
               <div className="col-md-6">
                 <p>&copy; Copyright {year} Definity. All Rights Reserved</p>
               </div>
-              <div className="col-md-6 text-right">
+              <div className="col-md-6 text-right footer-links">
                 <a href="#/about-us">About Us</a>
+                <a href="#/contributors">Contributors</a>
               </div>
             </div>
           </div>

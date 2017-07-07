@@ -14,3 +14,7 @@ footer .copyright p {
   margin: 0;
   color: 586069;
 }
+
+footer .footer-links a {
+  margin-left: 10px;
+}

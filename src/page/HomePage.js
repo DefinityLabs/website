@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Container } from 'reactstrap';
 import Cover from '../website/Cover';
+import Icon from '../website/Icon';
 import {Page} from '../website/Page';
 import Separator from '../website/Separator';
-import {Section, Card} from '../website/Section';
+import {Section, Billboard, Card} from '../website/Section';
 
 import coverImage from '../website/automation.png';
 
@@ -21,31 +23,29 @@ class HomePage extends Component {
             </div>
           </div>
         </Cover>
-        <Section>
-          <Card>
-            <h3>Learn</h3>
-            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
-          </Card>
-          <Card>
-            <h3>Learn</h3>
-            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
-          </Card>
-          <Card>
-            <h3>Learn</h3>
-            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
-          </Card>
-        </Section>
-        <Separator/>
-        <Section>
-          <Card>
-            <h3>Learn</h3>
-            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
-          </Card>
-          <Card>
-            <h3>Learn</h3>
-            <p>Get smart on game-changing software practices and the Definity products that increase your chance of success.</p>
-          </Card>
-        </Section>
+        <Container>
+          <Section>
+            <Card>
+              <h3><Icon name="search" /> Discover</h3>
+              <p>Which tool can help you to be more productive.</p>
+            </Card>
+            <Card>
+              <h3><Icon name="graduation-cap" /> Learn</h3>
+              <p>How to use the tools and what they can do for you.</p>
+            </Card>
+            <Card>
+              <h3><Icon name="magic" /> Automate</h3>
+              <p>Let the tools do the job for you while you can do what really matters.</p>
+            </Card>
+          </Section>
+          <Separator/>
+          <Section>
+            <Billboard>
+              <h4>Our Projects</h4>
+              <h2>Open Source <a href="#/projects">projects</a> can automate your job</h2>
+            </Billboard>
+          </Section>
+        </Container>
       </Page>
     );
   }
