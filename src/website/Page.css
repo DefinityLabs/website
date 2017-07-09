@@ -19,3 +19,45 @@
   font-weight: 200;
   color: #999;
 }
+
+.page .page-content {
+  margin: 45px 10px;
+  margin-bottom: 50px;
+}
+
+.page .page-content p {
+  font-family: Tahoma;
+  font-size: 1.2em;
+}
+
+.page .page-content h2 {
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  font-size: 2em;
+  border-bottom: solid 1px #444;
+  color: #444;
+}
+
+.page .page-content h3 {
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #444;
+}
+
+.page .page-content pre {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+  background-color: #ededed;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
+.page .badges {
+  margin-top: 30px;
+  padding: 0 10px;
+  text-align: right;
+}

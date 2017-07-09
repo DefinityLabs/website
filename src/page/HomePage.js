@@ -41,8 +41,8 @@ class HomePage extends Component {
           <Separator/>
           <Section>
             <Billboard>
-              <h4>Our Projects</h4>
-              <h2>Open Source <a href="#/projects">projects</a> can automate your job</h2>
+              <h4>Our Products</h4>
+              <h2>Open Source <a href="#/products">products</a> can automate your job</h2>
             </Billboard>
           </Section>
         </Container>

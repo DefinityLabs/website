@@ -21,4 +21,14 @@ class Title extends Component {
   }
 }
 
-export { Page, Title };
+class PageContent extends Component {
+  render() {
+    return (
+      <div className="page-content">
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+export { Page, Title, PageContent };
