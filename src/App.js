@@ -38,10 +38,8 @@ class App extends Component {
             <div className="col-md-4 text-right">
               <Social
                 github="https://github.com/DefinityLabs"
-                twitter="DefinityLabs"
-                facebook="DefinityLabs"
-                medium="DefinityLabs"
-                youtube="DefinityLabs"
+                twitter="https://twitter.com/DefinityLabs"
+                medium="https://medium.com/definity"
               />
             </div>
           </div>
