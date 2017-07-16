@@ -355,6 +355,74 @@ $ aux4 $ encrypt passowrd
 \`\`\`
 `;
 
+const realWorldUsage = `
+### Definity Website
+The Definity Website uses the **aux4** to \`\`deploy\`\` the website in the GitHub Pages.
+
+This script is responsible for clone the static website repository,
+merge the changes push it again to the repository and them remove the temporary directory.
+
+\`\`\`
+{
+  "profiles": [
+    {
+      "name": "main",
+      "commands": [
+        {
+          "value": "clean",
+          "execute": [
+            "rm -rf $directory",
+            "log:Directory was removed successfully"
+          ],
+          "help": {
+            "description": "Clean the temporary deploy directory",
+            "variables": [
+              {
+                "name": "directory",
+                "text": "Temporary directory to clone the website repository",
+                "default": "~/.definity-website"
+              }
+            ]
+          }
+        },
+        {
+          "value": "deploy",
+          "execute": [
+            "mkdir $directory",
+            "git clone https://github.com/DefinityLabs/definitylabs.github.io.git $directory",
+            "rm -rf \${directory}/static",
+            "rm -rf build",
+            "npm run build",
+            "cp -r build/* \${directory}/",
+            "git --git-dir \${directory}/.git --work-tree \${directory} add \${directory}/.",
+            "git --git-dir \${directory}/.git --work-tree \${directory} commit -m '\${message}'",
+            "git --git-dir \${directory}/.git --work-tree \${directory} push",
+            "rm -rf $directory",
+            "log:The website was deployed successfully"
+          ],
+          "help": {
+            "description": "Deploy the current version of website to the github pages",
+            "variables": [
+              {
+                "name": "directory",
+                "text": "Temporary directory to clone the website repository",
+                "default": "~/.definity-website"
+              },
+              {
+                "name": "message",
+                "text": "Commit Message",
+                "default": "Website Changes"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+\`\`\`
+`;
+
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/aux4).
 `;
@@ -377,6 +445,7 @@ const sections = [
   {title: 'Using Multiple Profiles', content: multipleProfiles},
   {title: 'Help', content: help},
   {title: 'Security', content: security},
+  {title: 'Real World Usage', content: realWorldUsage},
   {title: 'Upgrade', content: upgrade},
   {title: 'GitHub', content: github},
   {title: 'Bugs & Features', content: bugs},
