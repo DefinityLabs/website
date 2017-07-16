@@ -69,6 +69,11 @@ bye!
 \`\`\`
 `;
 
+const userGuide = `
+Are you interested in discover more about this awesome tool?
+The complete [aux4 reference documentation](#/products/aux4/docs) is available.
+`;
+
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/aux4).
 `;
@@ -85,6 +90,7 @@ const sections = [
   {title: 'Info', icon: 'info-circle', content: info},
   {title: 'Installation', icon: 'desktop', content: installation},
   {title: 'Getting Started', icon: 'star', content: gettingStarted},
+  {title: 'User Guide', icon: 'user', content: userGuide},
   {title: 'GitHub', icon: 'github', content: github},
   {title: 'Bugs & Features', icon: 'bug', content: bugs},
   {title: 'License', icon: 'certificate', content: license}

@@ -56,6 +56,12 @@ $ cherry-pick-tool
 \`\`\`
 `;
 
+
+const userGuide = `
+Are you interested in discover more about this awesome tool?
+The complete [Cherry Pick Tool reference documentation](#/products/cherry-pick-tool/docs) is available.
+`;
+
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/cherry-pick-tool).
 `;
@@ -74,6 +80,7 @@ const sections = [
   {title: 'Info', icon: 'info-circle', content: info},
   {title: 'Installation', icon: 'desktop', content: installation},
   {title: 'Getting Started', icon: 'star', content: gettingStarted},
+  {title: 'User Guide', icon: 'user', content: userGuide},
   {title: 'GitHub', icon: 'github', content: github},
   {title: 'Bugs & Features', icon: 'bug', content: bugs},
   {title: 'License', icon: 'certificate', content: license}
