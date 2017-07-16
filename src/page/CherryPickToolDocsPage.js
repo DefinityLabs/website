@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import ProductPage from './ProductPage';
+import UserGuidePage from './UserGuidePage';
 
-const badges = `
-[![Build Status](https://travis-ci.org/DefinityLabs/cherry-pick-tool.svg?branch=master)](https://travis-ci.org/DefinityLabs/cherry-pick-tool)
-[![Coverage Status](https://coveralls.io/repos/github/DefinityLabs/cherry-pick-tool/badge.svg?branch=master)](https://coveralls.io/github/DefinityLabs/cherry-pick-tool?branch=master)
-[![npm version](https://badge.fury.io/js/cherry-pick-tool.svg)](http://npmjs.com/package/cherry-pick-tool)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-`;
-
-const info = `
+const introduction = `
 Cherry pick is not a common practice, but sometimes we cannot avoid it. It's a painful process, first filtering the commits you want to cherry pick and them executing the merging with the current code.
 
 This tool was created to make this process painless. Using it you can easily navigate between the commits and add the ones you want to the cherrypick file, it doesn't matter the order, we'll sort them for you.
@@ -64,11 +57,6 @@ You can press \`\`h\`\` or \`\`?\`\` to display a help message:
 `;
 
 
-const userGuide = `
-Are you interested in discover more about this awesome tool?
-The complete [Cherry Pick Tool reference documentation](#/products/cherry-pick-tool/docs) is available.
-`;
-
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/cherry-pick-tool).
 `;
@@ -84,26 +72,23 @@ The \`\`cherry-pick-tool\`\` is released under version 2.0 of the [Apache Licens
 `;
 
 const sections = [
-  {title: 'Info', icon: 'info-circle', content: info},
-  {title: 'Installation', icon: 'desktop', content: installation},
-  {title: 'Getting Started', icon: 'star', content: gettingStarted},
-  {title: 'User Guide', icon: 'user', content: userGuide},
-  {title: 'GitHub', icon: 'github', content: github},
-  {title: 'Bugs & Features', icon: 'bug', content: bugs},
-  {title: 'License', icon: 'certificate', content: license}
+  {title: 'Introduction', content: introduction},
+  {title: 'Installation', content: installation},
+  {title: 'Getting Started', content: gettingStarted},
+  {title: 'GitHub', content: github},
+  {title: 'Bugs & Features', content: bugs},
+  {title: 'License', content: license}
 ];
 
-class CherryPickToolPage extends Component {
+class CherryPickToolDocsPage extends Component {
   render() {
     return (
-      <ProductPage
+      <UserGuidePage
         emoji="cherries"
         name="Cherry Pick Tool"
-        slogan="deploy only what matters"
-        badges={badges}
         sections={sections} />
     );
   }
 }
 
-export default CherryPickToolPage;
+export default CherryPickToolDocsPage;

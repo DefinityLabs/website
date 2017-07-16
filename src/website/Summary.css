@@ -1,0 +1,30 @@
+.summary {
+  margin-top: 40px;
+  border-right: solid 1px #ccc;
+  position: sticky;
+  top: 40px;
+}
+
+.summary ol {
+  list-style: decimal;
+}
+
+.summary ol li {
+  color: #888;
+}
+
+.summary ol li a {
+  display: block;
+  padding: 5px;
+  font-size: 1.2em;
+  color: #1d2129;
+  cursor: pointer;
+}
+
+.summary ol li a:not([href]):not([tabindex]) {
+  color: #1d2129;
+}
+
+.summary ol li a:hover {
+  text-decoration: underline !important;
+}

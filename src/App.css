@@ -62,3 +62,7 @@ small {
 .contributor ul.references li a {
   color: #666;
 }
+
+.full-page {
+  padding: 15px;
+}
