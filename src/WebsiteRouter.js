@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Router, Route, Switch} from 'react-router-dom';
 import createHistory from 'history/createHashHistory';
+import ReactGA from 'react-ga';
 
 import HomePage from './page/HomePage';
 import AboutPage from './page/AboutPage';
@@ -14,10 +15,12 @@ import NotFoundPage from './page/NotFoundPage';
 
 const history = createHistory();
 
+ReactGA.initialize('UA-102646186-1');
+
 class WebsiteRouter extends Component {
   render() {
     return (
-      <Router history={history}>
+      <Router onUpdate={fireTracking} history={history}>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/about-us" component={AboutPage} />
@@ -32,6 +35,10 @@ class WebsiteRouter extends Component {
       </Router>
     );
   }
+}
+
+function fireTracking() {
+    ReactGA.pageview(window.location.hash);
 }
 
 export default WebsiteRouter;
