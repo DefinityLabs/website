@@ -14,10 +14,12 @@ import CherryPickToolDocsPage from './page/CherryPickToolDocsPage';
 import NotFoundPage from './page/NotFoundPage';
 
 ReactGA.initialize('UA-102646186-1');
+const ga = ReactGA.ga();
 
 const history = createHistory();
 history.listen((location, action) => {
-  ReactGA.ga('send', 'pageview', location.pathname);
+  ga('set', 'page', location.pathname);
+  ga('send', 'pageview');
 });
 
 class WebsiteRouter extends Component {
