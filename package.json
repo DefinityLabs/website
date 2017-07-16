@@ -12,13 +12,11 @@
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "font-awesome": "^4.7.0",
-    "gh-pages": "^1.0.0",
     "node-emoji": "^1.6.1",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
-    "react-ga": "^2.2.0",
     "react-markdown": "^2.5.0",
     "react-router-dom": "^4.1.1",
     "reactstrap": "^4.6.2"

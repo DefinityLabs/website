@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Router, Route, Switch} from 'react-router-dom';
 import createHistory from 'history/createHashHistory';
-import ReactGA from 'react-ga';
 
 import HomePage from './page/HomePage';
 import AboutPage from './page/AboutPage';
@@ -13,14 +12,7 @@ import CherryPickToolPage from './page/CherryPickToolPage';
 import CherryPickToolDocsPage from './page/CherryPickToolDocsPage';
 import NotFoundPage from './page/NotFoundPage';
 
-ReactGA.initialize('UA-102646186-1');
-const ga = ReactGA.ga();
-
 const history = createHistory();
-history.listen((location, action) => {
-  ga('set', 'page', location.pathname);
-  ga('send', 'pageview');
-});
 
 class WebsiteRouter extends Component {
   render() {
