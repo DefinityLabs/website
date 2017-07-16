@@ -13,14 +13,17 @@ import CherryPickToolPage from './page/CherryPickToolPage';
 import CherryPickToolDocsPage from './page/CherryPickToolDocsPage';
 import NotFoundPage from './page/NotFoundPage';
 
-const history = createHistory();
-
 ReactGA.initialize('UA-102646186-1');
+
+const history = createHistory();
+history.listen((location, action) => {
+  ReactGA.ga('send', 'pageview', location.pathname);
+});
 
 class WebsiteRouter extends Component {
   render() {
     return (
-      <Router onUpdate={fireTracking} history={history}>
+      <Router history={history}>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/about-us" component={AboutPage} />
@@ -35,10 +38,6 @@ class WebsiteRouter extends Component {
       </Router>
     );
   }
-}
-
-function fireTracking() {
-    ReactGA.pageview(window.location.hash);
 }
 
 export default WebsiteRouter;
