@@ -24,7 +24,7 @@ class Title extends Component {
 class PageContent extends Component {
   render() {
     return (
-      <div className="page-content">
+      <div id={this.props.id} className="page-content">
         {this.props.children}
       </div>
     );

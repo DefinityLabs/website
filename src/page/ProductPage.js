@@ -12,12 +12,15 @@ class ProductPage extends Component {
     let pages = [];
 
     this.props.sections.forEach((section) => {
+      let parameterizedTitle = section.title.toLowerCase()
+            .replace('&', ' ').replace(/\s+/g, '-');
+
       sidebarItems.push(
-        <SidebarItem href="" key={section.title}><Icon name={section.icon} /> {section.title}</SidebarItem>
+        <SidebarItem href={"#" + parameterizedTitle} key={section.title}><Icon name={section.icon} /> {section.title}</SidebarItem>
       );
 
       pages.push(
-        <PageContent key={section.title}>
+        <PageContent id={parameterizedTitle} key={section.title}>
           <h2><Icon name={section.icon} /> {section.title}</h2>
           <Markdown source={section.content} />
         </PageContent>

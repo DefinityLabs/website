@@ -8,6 +8,14 @@ const badges = `
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 `;
 
+const info = `
+Cherry pick is not a common practice, but sometimes we cannot avoid it. It's a painful process, first filtering the commits you want to cherry pick and them executing the merging with the current code.
+
+This tool was created to make this process painless. Using it you can easily navigate between the commits and add the ones you want to the cherrypick file, it doesn't matter the order, we'll sort them for you.
+
+After you have all your commits into the cherrypick file, you can just execute it. If you don't want execute, you can save the file and do it later.
+`;
+
 const installation = `
 \`\`\`bash
 npm install --global cherry-pick-tool
@@ -57,11 +65,18 @@ const bugs = `
 Did you find a bug? Do you need an additional feature? Please [report the issue](https://github.com/DefinityLabs/cherry-pick-tool/issues) and we will work to improve the product as soon as possible.
 `;
 
+
+const license = `
+The \`\`cherry-pick-tool\`\` is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
+`;
+
 const sections = [
+  {title: 'Info', icon: 'info-circle', content: info},
   {title: 'Installation', icon: 'desktop', content: installation},
-  {title: 'Getting Started', icon: 'home', content: gettingStarted},
+  {title: 'Getting Started', icon: 'star', content: gettingStarted},
   {title: 'GitHub', icon: 'github', content: github},
-  {title: 'Bugs & Features', icon: 'bug', content: bugs}
+  {title: 'Bugs & Features', icon: 'bug', content: bugs},
+  {title: 'License', icon: 'certificate', content: license}
 ];
 
 class CherryPickToolPage extends Component {

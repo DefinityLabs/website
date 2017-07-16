@@ -14,13 +14,28 @@ class Sidebar extends Component {
 }
 
 class SidebarItem extends Component {
+  goTo(id) {
+    window.scroll(0, findElementPosition(document.querySelector(id)) - 40);
+    return false;
+  }
+
   render() {
     return (
       <li>
-        <a href={this.props.href}>{this.props.children}</a>
+        <a onClick={this.goTo.bind(this, this.props.href)}>{this.props.children}</a>
       </li>
     );
   }
+}
+
+function findElementPosition(obj) {
+    var curtop = 0;
+    let element = obj;
+    while (element.offsetParent) {
+        curtop += element.offsetTop;
+        element = element.offsetParent;
+    }
+    return [curtop];
 }
 
 export { Sidebar, SidebarItem };
