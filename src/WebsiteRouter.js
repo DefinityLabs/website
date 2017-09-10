@@ -10,6 +10,9 @@ import Aux4Page from './page/Aux4Page';
 import Aux4DocsPage from './page/Aux4DocsPage';
 import CherryPickToolPage from './page/CherryPickToolPage';
 import CherryPickToolDocsPage from './page/CherryPickToolDocsPage';
+import FacilitatorPage from './page/FacilitatorPage';
+import FacilitatorDocsPage from './page/FacilitatorDocsPage';
+import FacilitatorWebDriverFacilitatorSkillPage from './page/WebDriverFacilitatorSkillPage';
 import NotFoundPage from './page/NotFoundPage';
 
 const history = createHistory();
@@ -26,6 +29,9 @@ class WebsiteRouter extends Component {
           <Route exact path="/products/aux4/docs" component={Aux4DocsPage} />
           <Route exact path="/products/cherry-pick-tool" component={CherryPickToolPage} />
           <Route exact path="/products/cherry-pick-tool/docs" component={CherryPickToolDocsPage} />
+          <Route exact path="/products/facilitator" component={FacilitatorPage} />
+          <Route exact path="/products/facilitator/docs" component={FacilitatorDocsPage} />
+          <Route exact path="/products/webdriver-facilitator-skill" component={FacilitatorWebDriverFacilitatorSkillPage} />
           <Route exact path="/contributors" component={ContributorPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>

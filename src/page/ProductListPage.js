@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import { Container } from 'reactstrap';
 import emoji from 'node-emoji';
 import {Page, Title} from '../website/Page';
@@ -16,13 +17,23 @@ class ProductListPage extends Component {
         <Container>
           <Section>
             <Card>
-              <h2>{emoji.get('rocket')} <a href="#/products/aux4">aux4</a></h2>
+              <h2>{emoji.get('rocket')} <Link to="/products/aux4">aux4</Link></h2>
               <p>high level scripts</p>
             </Card>
             <Card>
-              <h2>{emoji.get('cherries')} <a href="#/products/cherry-pick-tool">Cherry Pick Tool</a></h2>
+              <h2>{emoji.get('cherries')} <Link to="/products/cherry-pick-tool">Cherry Pick Tool</Link></h2>
               <p>deploy only what matters</p>
             </Card>
+            {/*
+            <Card>
+              <h2>{emoji.get('speech_balloon')} <Link to="/products/facilitator">Facilitator</Link></h2>
+              <p>natural language as a programming language</p>
+            </Card>
+            <Card>
+              <h2>{emoji.get('speech_balloon')} <Link to="/products/webdriver-facilitator-skill">WebDriver Facilitator Skill</Link></h2>
+              <p>natural language as a programming language</p>
+            </Card>
+            */}
           </Section>
         </Container>
       </Page>

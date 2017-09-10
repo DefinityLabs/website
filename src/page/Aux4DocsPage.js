@@ -97,6 +97,8 @@ the \`\`main\`\` profile.
 The \`\`command\`\` is represented by an object with a value and a list of instructions with should be executed.
 These instructions will be executed in a terminal, it depends on the Operational System.
 
+**Important Note:** after execute each \`\`command\`\` the output is sets in the \`\`response\`\` variable.
+
 \`\`\`
 {
   "profiles": [
@@ -217,6 +219,21 @@ Even using the default value, the user can override it using a parameterized var
 
 \`\`\`
 $ aux4 create-dir --dirname other
+\`\`\`
+`;
+
+const json = `
+**Aux4** can convert the command output from [JSON](http://json.org) string to object.
+
+\`\`\`
+...
+  {
+    "execute": [
+      "json:cat package.json",
+      "echo version \${response.version}"
+    ]
+  }
+...
 \`\`\`
 `;
 
@@ -441,6 +458,7 @@ const sections = [
   {title: 'Getting Started', content: gettingStarted},
   {title: 'Configuration File', content: configurationFile},
   {title: 'Variables', content: variables},
+  {title: 'JSON Output', content: json},
   {title: 'Logging', content: logging},
   {title: 'Using Multiple Profiles', content: multipleProfiles},
   {title: 'Help', content: help},

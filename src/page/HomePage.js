@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import { Container } from 'reactstrap';
 import Cover from '../website/Cover';
 import Icon from '../website/Icon';
@@ -42,7 +43,7 @@ class HomePage extends Component {
           <Section>
             <Billboard>
               <h4>Our Products</h4>
-              <h2>Open Source <a href="#/products">products</a> can automate your job</h2>
+              <h2>Open Source <Link to="/products">products</Link> can automate your job</h2>
             </Billboard>
           </Section>
         </Container>
