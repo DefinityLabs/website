@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UserGuidePage from './UserGuidePage';
 
 const introduction = `
-
+Facilitator is an engine responsible for converting natural language text to programming language.
 `;
 
 const installation = `
@@ -12,7 +12,37 @@ npm install --global facilitator
 `;
 
 const gettingStarted = `
+##### Hello World
+Create a simple text file \`example.txt\`:
+\`\`\`
+let "name" as "John"
+print "Hello {{name}}"
+\`\`\`
 
+Execute it:
+\`\`\`bash
+$ facilitator example.txt
+[OUT] Hello John
+\`\`\`
+
+##### Defining Actions
+Create a text file \`actions.txt\`:
+\`\`\`
+define:display name
+print "Hello {{name}}"
+\`\`\`
+
+Create a text file \`example.txt\`:
+\`\`\`
+let "name" as "John"
+display name
+\`\`\`
+
+Execute it:
+\`\`\`bash
+$ facilitator actions.txt example.txt
+[OUT] Hello John
+\`\`\`
 `;
 
 
@@ -22,6 +52,7 @@ The complete [Facilitator reference documentation](#/products/facilitator/docs) 
 `;
 
 const skills = `
+[WebDriver](#/products/webdriver-facilitator-skill) - webdriver as natural language
 `;
 
 const skillWebDriver = `

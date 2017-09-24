@@ -9,7 +9,7 @@ const badges = `
 `;
 
 const info = `
-
+Facilitator is an engine responsible for converting natural language text to programming language.
 `;
 
 const installation = `
@@ -19,17 +19,46 @@ npm install --global facilitator
 `;
 
 const gettingStarted = `
+##### Hello World
+Create a simple text file \`example.txt\`:
+\`\`\`
+let "name" as "John"
+print "Hello {{name}}"
+\`\`\`
 
-`;
+Execute it:
+\`\`\`bash
+$ facilitator example.txt
+[OUT] Hello John
+\`\`\`
 
+##### Defining Actions
+Create a text file \`actions.txt\`:
+\`\`\`
+define:display name
+print "Hello {{name}}"
+\`\`\`
 
-const userGuide = `
-Are you interested in discover more about this awesome tool?
-The complete [Facilitator reference documentation](#/products/facilitator/docs) is available.
+Create a text file \`example.txt\`:
+\`\`\`
+let "name" as "John"
+display name
+\`\`\`
+
+Execute it:
+\`\`\`bash
+$ facilitator actions.txt example.txt
+[OUT] Hello John
+\`\`\`
 `;
 
 const skills = `
 [WebDriver](#/products/webdriver-facilitator-skill) - webdriver as natural language
+`;
+
+const userGuide = `
+Are you interested in discover more about this awesome tool?
+The complete [Facilitator reference documentation](#/products/facilitator/docs) is available.
 `;
 
 const github = `
@@ -50,8 +79,8 @@ const sections = [
   {title: 'Info', icon: 'info-circle', content: info},
   {title: 'Installation', icon: 'desktop', content: installation},
   {title: 'Getting Started', icon: 'star', content: gettingStarted},
-  {title: 'User Guide', icon: 'user', content: userGuide},
   {title: 'Skills', icon: 'cube', content: skills},
+  {title: 'User Guide', icon: 'user', content: userGuide},
   {title: 'GitHub', icon: 'github', content: github},
   {title: 'Bugs & Features', icon: 'bug', content: bugs},
   {title: 'License', icon: 'certificate', content: license}

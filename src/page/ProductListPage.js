@@ -24,11 +24,11 @@ class ProductListPage extends Component {
               <h2>{emoji.get('cherries')} <Link to="/products/cherry-pick-tool">Cherry Pick Tool</Link></h2>
               <p>deploy only what matters</p>
             </Card>
-            {/*
             <Card>
               <h2>{emoji.get('speech_balloon')} <Link to="/products/facilitator">Facilitator</Link></h2>
               <p>natural language as a programming language</p>
             </Card>
+            {/*
             <Card>
               <h2>{emoji.get('speech_balloon')} <Link to="/products/webdriver-facilitator-skill">WebDriver Facilitator Skill</Link></h2>
               <p>natural language as a programming language</p>
