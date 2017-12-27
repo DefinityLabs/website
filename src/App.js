@@ -37,7 +37,7 @@ class App extends Component {
               <Social
                 github="https://github.com/DefinityLabs"
                 twitter="https://twitter.com/DefinityLabs"
-                medium="http://blog.definitylabs.org"
+                medium="http://content.definitylabs.org"
               />
             </div>
           </div>
