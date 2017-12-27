@@ -4,7 +4,6 @@ import ProductPage from './ProductPage';
 const badges = `
 [![Build Status](https://travis-ci.org/DefinityLabs/flue2ent.svg?branch=master)](https://travis-ci.org/DefinityLabs/flue2ent)
 [![Coverage Status](https://coveralls.io/repos/github/DefinityLabs/flue2ent/badge.svg?branch=master)](https://coveralls.io/github/DefinityLabs/flue2ent?branch=master)
-[![npm version](https://badge.fury.io/js/flue2ent.svg)](http://npmjs.com/package/flue2ent)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 `;
 
