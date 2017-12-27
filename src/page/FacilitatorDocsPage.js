@@ -55,6 +55,28 @@ const skills = `
 [WebDriver](#/products/webdriver-facilitator-skill) - webdriver as natural language
 `;
 
+const customSkill = `
+##### Create a node.js project
+First step is create a node project with suffix \`-facilitator-skill\`. e.g.: _custom-facilitator-skill_.
+
+##### Install facilitator package
+\`\`\`
+npm install facilitator
+\`\`\`
+
+##### Register
+
+\`\`\`javascript
+module.exports = {
+  install: (facilitator) => {
+    facilitator.register("text {variableOne} {variableTwo}", (varOne, varTwo) => {
+      ...
+    });
+  }
+};
+\`\`\`
+`;
+
 const skillWebDriver = `
 
 `;
@@ -78,6 +100,7 @@ const sections = [
   {title: 'Installation', content: installation},
   {title: 'Getting Started', content: gettingStarted},
   {title: 'Skills', content: skills},
+  {title: 'Hot to build a custom skill', content: customSkill},
   {title: 'GitHub', content: github},
   {title: 'Bugs & Features', content: bugs},
   {title: 'License', content: license}

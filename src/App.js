@@ -32,14 +32,12 @@ class App extends Component {
         <WebsiteRouter />
         <Footer>
           <div className="row">
-            <div className="col-md-8">
-              &nbsp;
-            </div>
+            <div className="col-md-8">&nbsp;</div>
             <div className="col-md-4 text-right">
               <Social
                 github="https://github.com/DefinityLabs"
                 twitter="https://twitter.com/DefinityLabs"
-                medium="https://medium.com/definity"
+                medium="http://blog.definitylabs.org"
               />
             </div>
           </div>
