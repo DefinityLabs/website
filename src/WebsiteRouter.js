@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Router, Route, Switch} from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createHashHistory';
 
 import HomePage from './page/HomePage';
@@ -13,6 +13,8 @@ import CherryPickToolDocsPage from './page/CherryPickToolDocsPage';
 import FacilitatorPage from './page/FacilitatorPage';
 import FacilitatorDocsPage from './page/FacilitatorDocsPage';
 import FacilitatorWebDriverFacilitatorSkillPage from './page/WebDriverFacilitatorSkillPage';
+import Flue2entPage from './page/Flue2entPage';
+import Flue2entDocsPage from './page/Flue2entDocsPage';
 import NotFoundPage from './page/NotFoundPage';
 
 const history = createHistory();
@@ -31,7 +33,13 @@ class WebsiteRouter extends Component {
           <Route exact path="/products/cherry-pick-tool/docs" component={CherryPickToolDocsPage} />
           <Route exact path="/products/facilitator" component={FacilitatorPage} />
           <Route exact path="/products/facilitator/docs" component={FacilitatorDocsPage} />
-          <Route exact path="/products/webdriver-facilitator-skill" component={FacilitatorWebDriverFacilitatorSkillPage} />
+          <Route
+            exact
+            path="/products/webdriver-facilitator-skill"
+            component={FacilitatorWebDriverFacilitatorSkillPage}
+          />
+          <Route exact path="/products/flue2ent" component={Flue2entPage} />
+          <Route exact path="/products/flue2ent/docs" component={Flue2entDocsPage} />
           <Route exact path="/contributors" component={ContributorPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
