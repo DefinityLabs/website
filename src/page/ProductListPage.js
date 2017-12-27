@@ -31,6 +31,14 @@ class ProductListPage extends Component {
               </h2>
               <p>deploy only what matters</p>
             </Card>
+            </Card>
+            <Card>
+              <h2>
+                {emoji.get('robot_face')}{' '}
+                <Link to="/products/flue2ent">flue2ent</Link>
+              </h2>
+              <p>fluent e2e tests</p>
+            </Card>
             {/*
             <Card>
               <h2>{emoji.get('speech_balloon')} <Link to="/products/facilitator">Facilitator</Link></h2>
