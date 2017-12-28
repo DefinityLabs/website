@@ -194,6 +194,8 @@ website.alert().dismiss();
 Website allows to use custom plugins.
 
 #### WebDriver Plugin
+The \`WebDriver Plugin\` must have a public constructor with a \`WebDriver\` or any of its interfaces as parameter.
+
 \`\`\`
 public class MyPlugin implements WebDriverPlugin {
   private final WebDriver driver;
@@ -209,8 +211,10 @@ MyPlugin plugin = website.driverPlugin(MyPlugin::new);
 \`\`\`
 
 #### Website Plugin
+The \`Website Plugin\` must have a public constructor with a \`Website\` as parameter.
+
 \`\`\`
-public class MyPlugin implements WebDriverPlugin {
+public class MyPlugin implements WebsitePlugin {
   private final Website website;
 
   public MyPlugin(Website website) {
