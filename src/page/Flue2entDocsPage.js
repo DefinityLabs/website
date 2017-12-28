@@ -81,6 +81,149 @@ String header = website.at(PageHeader.class).title().text();
 \`\`\`
 `;
 
+const website = `
+The \`Website\` class is the reference to the current website.
+`;
+
+const plugins = `
+### Page
+Get information related to the current page.
+
+\`\`\`
+// returns the current url
+website.page().getUrl();
+
+// returns the page title
+website.page().getTitle();
+
+// returns if HTML DOM is load
+website.page().isLoad();
+\`\`\`
+
+### Waiter
+Wait until *the condition* **is true** or **is not null**. This plugin uses [Selenium FluentWait](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/FluentWait.html).
+
+\`\`\`
+// waits until page is load
+website.justWait().until(website -> website.page().isLoad());
+website.justWait().until(Website.isLoad());
+
+// defines timeout as 10s
+website.justWait().upTo(10, TimeUnit.SECONDS).until(Website.isLoad());
+
+// defines timeout as 10s polling every 1s
+website.justWait().upTo(10, TimeUnit.SECONDS).pollingEvery(1, TimeUnit.SECONDS).until(Website.isLoad());
+
+// ignores exception
+website.justWait().ignoring(StaleElementReferenceException.class).until(website.hasFound(element(By.tagName("h1"))));
+\`\`\`
+
+### Scroll
+Plugin responsible for scrolling the page.
+
+\`\`\`
+// scroll to the top of the page
+website.scroll().top();
+
+// scroll 250px up
+website.scroll().up();
+
+// scroll 250px down
+website.scroll().down();
+
+// scroll to the bottom of the page
+website.scroll().bottom();
+\`\`\`
+
+Scroll to or by a predefined position.
+\`\`\`
+// javascript window.scrollTo(x, y)
+website.scroll().to(x, y);
+
+// javascript window.scrollBy(x, y)
+website.scroll().by(x, y);
+\`\`\`
+
+### JavaScript
+Executes javascript script.
+
+\`\`\`
+String script = "...";
+
+// execute script
+website.javascript().execute(script, args);
+
+// execute script asynchronously
+website.javascript().executeAsync(script, args);
+\`\`\`
+
+### Screenshot
+Takes a screenshot
+
+\`\`\`
+// saves file at ./screenshots/screenshot_yyyyMMddHHmmssSSS.png
+website.screenshot().take();
+
+// saves file at ./screenshots/<file name>.png
+String fileName = "...";
+website.screenshot().take(fileName);
+
+// take screenshot and returns a file
+website.screenshot().takeAsFile(file -> {
+  ...
+});
+
+// take screenshot and returns a byte array
+website.screenshot().takeAsBytes(bytes -> {
+  ...
+});
+\`\`\`
+
+### Alert
+Interacts with alert dialog.
+
+\`\`\`
+// click on "ok" button
+website.alert().ok();
+
+// dismisses the alert
+website.alert().dismiss();
+\`\`\`
+
+### Custom Plugin
+Website allows to use custom plugins.
+
+#### WebDriver Plugin
+\`\`\`
+public class MyPlugin implements WebDriverPlugin {
+  private final WebDriver driver;
+
+  public MyPlugin(WebDriver driver) {
+    this.driver = driver;
+  }
+
+  ...
+}
+
+MyPlugin plugin = website.driverPlugin(MyPlugin::new);
+\`\`\`
+
+#### Website Plugin
+\`\`\`
+public class MyPlugin implements WebDriverPlugin {
+  private final Website website;
+
+  public MyPlugin(Website website) {
+    this.website = website;
+  }
+
+  ...
+}
+
+MyPlugin plugin = website.plugin(MyPlugin::new);
+\`\`\`
+`;
+
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/flue2ent).
 `;
@@ -97,6 +240,8 @@ const sections = [
   { title: 'Introduction', content: introduction },
   { title: 'Installation', content: installation },
   { title: 'Getting Started', content: gettingStarted },
+  { title: 'Website', content: website },
+  { title: 'Plugins', content: plugins },
   { title: 'GitHub', content: github },
   { title: 'Bugs & Features', content: bugs },
   { title: 'License', content: license }

@@ -1,5 +1,4 @@
 .page {
-
 }
 
 .page .title {
@@ -9,7 +8,8 @@
 }
 
 .page .title h1 {
-  font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Segoe UI, Helvetica, Arial, Lucida Grande, sans-serif;
+  font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Segoe UI, Helvetica, Arial,
+    Lucida Grande, sans-serif;
   font-weight: 300;
   font-size: 3.5em;
 }
@@ -44,6 +44,14 @@
   font-size: 1.5em;
   font-weight: 600;
   color: #444;
+}
+
+.page .page-content h4 {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #666;
 }
 
 .page .page-content pre {
