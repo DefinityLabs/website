@@ -83,6 +83,166 @@ String header = website.at(PageHeader.class).title().text();
 
 const website = `
 The \`Website\` class is the reference to the current website.
+
+\`\`\`
+WebDriver driver = ...; // get web driver
+
+String url = "<your website>";
+Website website = Website.with(driver).visit(url);
+\`\`\`
+`;
+
+const webElements = `
+The [Selenium WebElement](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/WebElement.html)
+is wrapped by \`WebElementWrapper\` class in order to make it more fluent and extensible.
+
+\`\`\`
+WebElementWrapper name = website.findElement(By.id("name"));
+
+List<WebElementWrapper> fields = website.findElements(By.cssSelector(".field"));
+\`\`\`
+
+The \`WebElementWrapper\` delegates few methods to \`Selenium WebElement\`.
+\`\`\`
+WebElementWrapper element = ...;
+
+// returns Selenium WebElement
+element.webElement();
+
+// same as webElement.getText();
+element.text();
+
+// same as webElement.click();
+element.click();
+
+// same as webElement.submit();
+element.submit();
+
+// same as webElement.getAttribute(name);
+element.getAttribute(name);
+
+// same as webElement.isEnabled();
+element.isEnabled();
+
+// same as webElement.isDisplayed();
+element.isDisplayed();
+
+// same as webElement.isSelected();
+element.isSelected();
+
+// same as webElement.findElement(By);
+WebElementWrapper foundElement = element.findElement(By);
+
+// same as webElement.findElements(By);
+List<WebElementWrapper> foundElements = element.findElements(By);
+\`\`\`
+
+The \`WebElementWrapper\` can be easily extended using method \`as\`.
+\`\`\`
+TableElement tableElement = website.findElement(By.tagName("table")).as(TableElement::new);
+\`\`\`
+
+### Table Element
+
+\`\`\`
+TableElement tableElement = website.findElement(By.tagName("table")).as(TableElement::new);
+
+// returns all rows from the table
+table.rows();
+
+// returns row by index
+table.row(index);
+
+// returns if table contains such row
+table.contains(row -> {
+  ...
+});
+
+// returns the first row which the condition is true
+table.find(row -> {
+  ...
+});
+
+// returns all rows which the condition is true
+table.findAll(row -> {
+  ...
+});
+
+// returns a supplier to check if some row matches the condition
+table.has(row -> {
+  ...
+});
+\`\`\`
+
+#### Table Filtering
+
+\`\`\`
+table.find(atColumn(1).byText("text"));
+
+table.find(atColumn(1).byTextContaining("text"));
+
+table.find(atColumn(1).byTextIgnoringCase("text"));
+
+table.find(atColumn(1).matching(column -> {
+  ...
+}));
+\`\`\`
+
+#### Custom Table
+
+\`\`\`
+public class CustomTableElement extends AbstractTableElement<TableRowElement<TableColumnElement>, TableColumnElement> {
+    public CustomTableElement(WebElementWrapper table) {
+        super(table, configuration ->
+                configuration.rowDefined(By.cssSelector("div.row"))
+                        .headerDefined(By.cssSelector("div.header"))
+                        .columnDefined(By.cssSelector("div.cell"))
+        );
+    }
+
+    @Override
+    protected TableRowElement<TableColumnElement> createRow(WebElementWrapper webElement) {
+        return new TableRowElement<>(webElement, this);
+    }
+
+    @Override
+    protected TableColumnElement createColumn(WebElementWrapper webElement) {
+        return new TableColumnElement(webElement, this);
+    }
+}
+
+CustomTableElement table = website.findElement(By.cssSelector("div.table")).as(CustomTableElement::new);
+\`\`\`
+
+### List Element
+
+\`\`\`
+ListElement listElement = website.findElement(By.tagName("ul")).as(ListElement::new);
+
+// returns all items
+List<ListElementItem> items = listElement.items();
+
+// returns true if some item matches the condition
+listElement.contains(item -> {
+  ...
+});
+
+// returns the first item which match the condition
+listElement.find(item -> {
+  ...
+});
+
+// returns all items which match the condition
+listElement.findAll(item -> {
+  ...
+});
+
+// returns supplier to check if some item matches the condition
+listElement.hasItem(item -> {
+  ...
+});
+\`\`\`
+
 `;
 
 const plugins = `
@@ -245,6 +405,7 @@ const sections = [
   { title: 'Installation', content: installation },
   { title: 'Getting Started', content: gettingStarted },
   { title: 'Website', content: website },
+  { title: 'Web Elements', content: webElements },
   { title: 'Plugins', content: plugins },
   { title: 'GitHub', content: github },
   { title: 'Bugs & Features', content: bugs },
