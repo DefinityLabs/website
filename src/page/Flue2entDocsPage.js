@@ -141,9 +141,9 @@ The \`WebElementWrapper\` can be easily extended using method \`as\`.
 \`\`\`
 TableElement tableElement = website.findElement(By.tagName("table")).as(TableElement::new);
 \`\`\`
+`;
 
-### Table Element
-
+const tableElement = `
 \`\`\`
 TableElement tableElement = website.findElement(By.tagName("table")).as(TableElement::new);
 
@@ -210,12 +210,12 @@ public class CustomTableElement extends AbstractTableElement<TableRowElement<Tab
         return new TableColumnElement(webElement, this);
     }
 }
-
+...
 CustomTableElement table = website.findElement(By.cssSelector("div.table")).as(CustomTableElement::new);
 \`\`\`
+`;
 
-### List Element
-
+const listElement = `
 \`\`\`
 ListElement listElement = website.findElement(By.tagName("ul")).as(ListElement::new);
 
@@ -243,10 +243,65 @@ listElement.hasItem(item -> {
 });
 \`\`\`
 
+#### Custom List Element
+
+\`\`\`
+public class CustomListElement extends AbstractListElement<ListItemElement> {
+    public ListElement(WebElementWrapper webElement) {
+        super(webElement, By.className("list-item"));
+    }
+
+    @Override
+    protected ListItemElement createListItem(WebElementWrapper webElementWrapper) {
+        return new ListItemElement(this, webElementWrapper);
+    }
+}
+...
+CustomListElement listElement = website.findElement(By.className("list")).as(CustomListElement::new);
+\`\`\`
+`;
+
+const selectElement = `
+\`\`\`
+SelectElement select = website.findElement(By.tagName("select")).as(SelectElement::new);
+
+// returns true if select is multiple
+select.isMultiple();
+
+// returns selected items
+List<SelectOptionElement> items = select.selectedItems();
+
+// returns selected item
+SelectOptionElement item = select.selectedItem();
+
+// select item by visible text
+select.selectByVisibleText("text");
+
+// select item by index
+select.selectByIndex(2);
+
+// select item by value
+select.selectByValue("MALE");
+\`\`\`
+`;
+
+const customElement = `
+
+\`\`\`
+public class CustomElement extends WebElementDecorator {
+    public CustomElement(WebElementWrapper webElement) {
+      super(webElement);
+    }
+}
+...
+CustomElement element = website.findElement(By.cssSelector("div.special")).as(CustomElement::new);
+\`\`\`
 `;
 
 const plugins = `
-### Page
+`;
+
+const pagePlugin = `
 Get information related to the current page.
 
 \`\`\`
@@ -259,8 +314,9 @@ website.page().getTitle();
 // returns if HTML DOM is load
 website.page().isLoad();
 \`\`\`
+`;
 
-### Waiter
+const waiterPlugin = `
 Wait until *the condition* **is true** or **is not null**. This plugin uses [Selenium FluentWait](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/FluentWait.html).
 
 \`\`\`
@@ -277,8 +333,9 @@ website.justWait().upTo(10, TimeUnit.SECONDS).pollingEvery(1, TimeUnit.SECONDS).
 // ignores exception
 website.justWait().ignoring(StaleElementReferenceException.class).until(website.hasFound(element(By.tagName("h1"))));
 \`\`\`
+`;
 
-### Scroll
+const scrollPlugin = `
 Plugin responsible for scrolling the page.
 
 \`\`\`
@@ -303,8 +360,9 @@ website.scroll().to(x, y);
 // javascript window.scrollBy(x, y)
 website.scroll().by(x, y);
 \`\`\`
+`;
 
-### JavaScript
+const javascriptPlugin = `
 Executes javascript script.
 
 \`\`\`
@@ -316,8 +374,9 @@ website.javascript().execute(script, args);
 // execute script asynchronously
 website.javascript().executeAsync(script, args);
 \`\`\`
+`;
 
-### Screenshot
+const screenshotPlugin = `
 Takes a screenshot
 
 \`\`\`
@@ -338,8 +397,9 @@ website.screenshot().takeAsBytes(bytes -> {
   ...
 });
 \`\`\`
+`;
 
-### Alert
+const alertPlugin = `
 Interacts with alert dialog.
 
 \`\`\`
@@ -349,8 +409,9 @@ website.alert().ok();
 // dismisses the alert
 website.alert().dismiss();
 \`\`\`
+`;
 
-### Custom Plugin
+const customPlugin = `
 Website allows to use custom plugins.
 
 #### WebDriver Plugin
@@ -405,8 +466,29 @@ const sections = [
   { title: 'Installation', content: installation },
   { title: 'Getting Started', content: gettingStarted },
   { title: 'Website', content: website },
-  { title: 'Web Elements', content: webElements },
-  { title: 'Plugins', content: plugins },
+  {
+    title: 'Web Elements',
+    content: webElements,
+    subItems: [
+      { title: 'Table', content: tableElement },
+      { title: 'List', content: listElement },
+      { title: 'Select', content: selectElement },
+      { title: 'Custom Element', content: customElement }
+    ]
+  },
+  {
+    title: 'Plugins',
+    content: plugins,
+    subItems: [
+      { title: 'Page', content: pagePlugin },
+      { title: 'Waiter', content: waiterPlugin },
+      { title: 'Scroll', content: scrollPlugin },
+      { title: 'JavaScript', content: javascriptPlugin },
+      { title: 'Screenshot', content: screenshotPlugin },
+      { title: 'Alert', content: alertPlugin },
+      { title: 'Custom Plugin', content: customPlugin }
+    ]
+  },
   { title: 'GitHub', content: github },
   { title: 'Bugs & Features', content: bugs },
   { title: 'License', content: license }
