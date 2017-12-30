@@ -1,8 +1,12 @@
-.summary {
-  margin-top: 40px;
-  border-right: solid 1px #ccc;
+.summary-box {
   position: sticky;
-  top: 40px;
+  top: 10px;
+  margin-top: 40px;
+  overflow: auto;
+}
+
+.summary {
+  border-right: solid 1px #ccc;
 }
 
 .summary ol {
@@ -10,12 +14,12 @@
 }
 
 .summary ol li {
+  padding: 5px;
   color: #888;
+  counter-increment: root;
 }
 
 .summary ol li a {
-  display: block;
-  padding: 5px;
   font-size: 1.2em;
   color: #1d2129;
   cursor: pointer;
@@ -27,4 +31,32 @@
 
 .summary ol li a:hover {
   text-decoration: underline !important;
+}
+
+.summary ol li ol {
+  padding: 0;
+  margin: 0;
+  counter-reset: subsection;
+  list-style-type: none;
+}
+
+.summary ol li .summary {
+  border-right: none;
+}
+
+.summary ol li ol li {
+  list-style-position: outside;
+  counter-increment: subsection;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.summary ol li ol li:last-child {
+  padding-bottom: 0;
+}
+
+.summary ol li ol li:before {
+  margin-right: 10px;
+  display: marker;
+  content: counter(root) '.' counter(subsection) '.';
 }

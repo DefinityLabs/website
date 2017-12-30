@@ -27,6 +27,11 @@ class App extends Component {
             <NavItem>
               <NavLink href="#/contributors">Contributors</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="http://content.definitylabs.org" target="_blank">
+                Content
+              </NavLink>
+            </NavItem>
           </Nav>
         </Header>
         <WebsiteRouter />
