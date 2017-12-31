@@ -286,15 +286,31 @@ select.selectByValue("MALE");
 `;
 
 const customElement = `
-
 \`\`\`
 public class CustomElement extends WebElementDecorator {
     public CustomElement(WebElementWrapper webElement) {
       super(webElement);
     }
+
+    public WebElementWrapper email() {
+      return webElement.findElement(By.id("email"));
+    }
 }
 ...
 CustomElement element = website.findElement(By.cssSelector("div.special")).as(CustomElement::new);
+element.email().enter("johndoe@mail.com");
+\`\`\`
+`;
+
+const simpleCustomElement = `
+\`\`\`
+public interface CustomElement extends SimpleWebElementDecorator {
+    @FindElementBy(id = "email")
+    WebElementWrapper email();
+}
+...
+CustomElement element = website.findElement(By.cssSelector("div.special")).as(CustomElement.class);
+element.email().enter("johndoe@mail.com");
 \`\`\`
 `;
 
@@ -473,7 +489,8 @@ const sections = [
       { title: 'Table', content: tableElement },
       { title: 'List', content: listElement },
       { title: 'Select', content: selectElement },
-      { title: 'Custom Element', content: customElement }
+      { title: 'Custom Element', content: customElement },
+      { title: 'Simple Custom Element', content: simpleCustomElement }
     ]
   },
   {
