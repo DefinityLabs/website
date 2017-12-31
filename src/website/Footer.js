@@ -11,11 +11,14 @@ class Footer extends Component {
           <div className="copyright">
             <div className="row">
               <div className="col-md-6">
-                <p>&copy; Copyright {year} Definity. All Rights Reserved</p>
+                <p>&copy; Copyright {year} Definity Labs. All Rights Reserved</p>
               </div>
               <div className="col-md-6 text-right footer-links">
                 <a href="#/about-us">About Us</a>
                 <a href="#/contributors">Contributors</a>
+                <a href="http://content.definitylabs.com" target="_blank">
+                  Content
+                </a>
               </div>
             </div>
           </div>
