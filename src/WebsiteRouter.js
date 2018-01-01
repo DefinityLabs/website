@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import createHistory from 'history/createHashHistory';
 
 import HomePage from './page/HomePage';
@@ -17,7 +18,13 @@ import Flue2entPage from './page/Flue2entPage';
 import Flue2entDocsPage from './page/Flue2entDocsPage';
 import NotFoundPage from './page/NotFoundPage';
 
+ReactGA.initialize('UA-102646186-1');
+
 const history = createHistory();
+history.listen((location, action) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 class WebsiteRouter extends Component {
   render() {
