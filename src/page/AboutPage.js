@@ -5,6 +5,10 @@ import Separator from '../website/Separator';
 import { Section, Billboard } from '../website/Section';
 
 class AboutPage extends Component {
+  componentDidMount() {
+    document.title = 'About Us | Definity Labs';
+  }
+
   render() {
     return (
       <Page>

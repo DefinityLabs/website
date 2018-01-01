@@ -8,6 +8,10 @@ import { Section, Billboard } from '../website/Section';
 import davidPicture from '../website/david.jpeg';
 
 class ContributorPage extends Component {
+  componentDidMount() {
+    document.title = 'Contributors | Definity Labs';
+  }
+
   render() {
     return (
       <Page>

@@ -6,6 +6,10 @@ import { Page, Title } from '../website/Page';
 import { Section, Card } from '../website/Section';
 
 class ProductListPage extends Component {
+  componentDidMount() {
+    document.title = 'Products | Definity Labs';
+  }
+
   render() {
     return (
       <Page>

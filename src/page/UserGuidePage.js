@@ -6,6 +6,10 @@ import { Page, Title, PageContent } from '../website/Page';
 import { Summary, SummaryItem } from '../website/Summary';
 
 class UserGuidePage extends Component {
+  componentDidMount() {
+    document.title = this.props.name + ' | Reference Guide | Definity Labs';
+  }
+
   render() {
     let sidebarItems = [];
     let pages = [];
