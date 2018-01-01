@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import UserGuidePage from './UserGuidePage';
 
 const introduction = `
-
+\`flue2ent\` is an API responsible for making the end-to-end tests in Java interesting again.
+The proposal of \`flue2ent\` is wraps the Selenium API making it more readable and easy to use.
+\`flue2ent\` means fluent + e2e (end-to-end), fluent is a reference for Martin Fowler's [Fluent Interface](https://www.martinfowler.com/bliki/FluentInterface.html).
 `;
 
 const installation = `
@@ -465,6 +467,129 @@ MyPlugin plugin = website.plugin(MyPlugin::new);
 \`\`\`
 `;
 
+const pageObject = `
+[Page Object](https://martinfowler.com/bliki/PageObject.html) is the most common pattern for e2e tests.
+It can be easily implemented using flue2ent.
+
+\`\`\`
+public class PageHeader extends PageObjectDsl<PageHeader> {
+    private PageHeader() {
+    }
+
+    public static PageHeader pageHeader() {
+        return new PageHeader();
+    }
+
+    public WebElementWrapper title() {
+        return website().findElement(By.tagName("h1"));
+    }
+
+    public CustomElement custom() {
+      return website().findElement(By.cssSelector("div.special")).as(CustomElement.class);
+    }
+}
+...
+String header = website.at(pageHeader()).title().text();
+\`\`\`
+
+Too many lines? It could be even easier.
+\`\`\`
+public interface PageHeader {
+    @FindElementBy(tagName = "h1")
+    WebElementWrapper title();
+
+    @FindElementBy(cssSelector = "div.special")
+    CustomElement custom();
+}
+...
+String header = website.at(PageHeader.class).title().text();
+
+website.at(PageHeader.class).custom().email().enter("johndoe@mail.com");
+\`\`\`
+`;
+
+const findElementBy = `
+The \`@FindElementBy\` annotation can be used only in the interfaces representing Page Object or the interfaces
+which extends the \`SimpleWebElementDecorator\`. It's used to the proxy know how it should find the element.
+
+\`\`\`
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface FindElementBy {
+
+    String id() default "";
+
+    String className() default "";
+
+    String tagName() default "";
+
+    String name() default "";
+
+    String linkText() default "";
+
+    String partialLinkText() default "";
+
+    String css() default "";
+
+    String xpath() default "";
+
+    String placeholder() default "";
+
+    String button() default "";
+
+    String label() default "";
+
+    String labelContaining() default "";
+
+    String value() default "";
+
+    String andGetAttribute() default "";
+
+}
+\`\`\`
+
+The usage is simple, just add the annotation to the method in the interface.
+
+\`\`\`
+public interface MyPage {
+    @FindElementBy(label = "Email or Phone")
+    WebElementWrapper emailOrPhone();
+
+    @FindElementBy(label = "Email or Phone", andGetAttribute = "value")
+    String getEmailOrPhoneValue();
+}
+\`\`\`
+
+The return type is automatically converted, using the following rules:
+
+* **when using \`andGetAttribute\`** the return must be String. It returns webElementWrapper.getAttribute(attributeName).
+* **when return type is \`String\`** returns webElementWrapper.text().
+* **when return type is a \`WebElementDecorator\`** returns webElementWrapper.as(Type::new).
+* **when return type is a \`SimpleWebElementDecorator\`** returns webElementWrapper.as(Type.class).
+* **otherwise** returns webElementWrapper itself.
+`;
+
+const extendedBy = `
+Offers few other ways to find an element. It encapsulates few xpath selectors in order to keep the code more readable.
+
+\`\`\`
+// By.xpath("//input[@value='" + text + "']")
+webElementWrapper.findElement(byValue("..."));
+
+// By.xpath("//input[@id=(//label[text()='" + text + "']/@for)]")
+webElementWrapper.findElement(byLabel("..."));
+
+// By.xpath("//input[@id=(//label[contains(text(), '" + text + "')]/@for)]")
+webElementWrapper.findElement(byLabelContaining("..."));
+
+// By.xpath("//input[@placeholder='" + text + "']")
+webElementWrapper.findElement(byPlaceholder("..."));
+
+// By.xpath("//button[text()='" + text + "']")
+webElementWrapper.findElement(byButton("..."));
+\`\`\`
+`;
+
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/flue2ent).
 `;
@@ -506,6 +631,9 @@ const sections = [
       { title: 'Custom Plugin', content: customPlugin }
     ]
   },
+  { title: 'Page Object', content: pageObject },
+  { title: '@FindElementBy Annotation', content: findElementBy },
+  { title: 'ExtendedBy', content: extendedBy },
   { title: 'GitHub', content: github },
   { title: 'Bugs & Features', content: bugs },
   { title: 'License', content: license }

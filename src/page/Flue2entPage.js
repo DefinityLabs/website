@@ -8,7 +8,9 @@ const badges = `
 `;
 
 const info = `
-
+\`flue2ent\` is an API responsible for making the end-to-end tests in Java interesting again.
+The proposal of \`flue2ent\` is wraps the Selenium API making it more readable and easy to use.
+\`flue2ent\` means fluent + e2e (end-to-end), fluent is a reference for Martin Fowler's [Fluent Interface](https://www.martinfowler.com/bliki/FluentInterface.html).
 `;
 
 const installation = `

@@ -25,7 +25,8 @@
   margin-bottom: 50px;
 }
 
-.page .page-content p {
+.page .page-content p,
+.page .page-content ul {
   font-family: Tahoma;
   font-size: 1.2em;
 }
