@@ -51,6 +51,7 @@ function includeSection(section, sidebarItems, pages, isSubItem = false) {
   let parameterizedTitle = section.title
     .toLowerCase()
     .replace('&', ' ')
+    .replace(/[^0-9a-zA-Z]+/, ' ')
     .replace(/\s+/g, '-');
 
   let sidebarSubItems = [];

@@ -590,6 +590,23 @@ webElementWrapper.findElement(byButton("..."));
 \`\`\`
 `;
 
+const staleElementReferenceException = `
+The exception \`StaleElementReferenceException\` is one of the worst nightmares of using [Selenium](http://www.seleniumhq.org).
+
+In order to avoid such problem, the method \`get\` should be used. It tries to retrieve the element during 3 seconds.
+
+\`\`\`
+WebElementWrapper element = website.get(website -> website.findElement(By.linkText("Ok")));
+WebElementWrapper element = website.get(element(By.linkText("Ok")));
+
+// website.get(...) is the same as
+website.justWait()
+          .upTo(3, TimeUnit.SECONDS)
+          .ignoring(StaleElementReferenceException.class)
+          .until(website -> website.findElement(By.linkText("Ok")));
+\`\`\`
+`;
+
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/flue2ent).
 `;
@@ -634,6 +651,7 @@ const sections = [
   { title: 'Page Object', content: pageObject },
   { title: '@FindElementBy Annotation', content: findElementBy },
   { title: 'ExtendedBy', content: extendedBy },
+  { title: 'StaleElementReferenceException', content: staleElementReferenceException },
   { title: 'GitHub', content: github },
   { title: 'Bugs & Features', content: bugs },
   { title: 'License', content: license }
