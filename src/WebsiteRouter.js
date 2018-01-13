@@ -22,11 +22,16 @@ ReactGA.initialize('UA-102646186-1');
 
 const history = createHistory();
 history.listen((location, action) => {
+  console.log('listen', location.pathname);
   ReactGA.set({ page: location.pathname });
   ReactGA.pageview(location.pathname);
 });
 
 class WebsiteRouter extends Component {
+  componentDidMount() {
+    history.push();
+  }
+
   render() {
     return (
       <Router history={history}>

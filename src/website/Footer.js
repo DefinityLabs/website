@@ -16,7 +16,7 @@ class Footer extends Component {
               <div className="col-md-6 text-right footer-links">
                 <a href="#/about-us">About Us</a>
                 <a href="#/contributors">Contributors</a>
-                <a href="http://content.definitylabs.com" target="_blank">
+                <a href="http://content.definitylabs.com" rel="noopener noreferrer" target="_blank">
                   Content
                 </a>
               </div>
