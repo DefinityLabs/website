@@ -56,7 +56,7 @@ By default it saves at \`./screenshot/screenshot_yyyyMMddHHmmssSSS.png\`. Don't 
 It can be easily implemented using flue2ent.
 
 \`\`\`
-public class PageHeader extends PageObjectDsl<PageHeader> {
+public class PageHeader extends PageObject<PageHeader> {
     private PageHeader() {
     }
 
@@ -472,7 +472,7 @@ const pageObject = `
 It can be easily implemented using flue2ent.
 
 \`\`\`
-public class PageHeader extends PageObjectDsl<PageHeader> {
+public class PageHeader extends PageObject<PageHeader> {
     private PageHeader() {
     }
 
