@@ -1,3 +1,4 @@
+import es6 from 'es6-promise/auto';
 import React, { Component } from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import Header from './website/Header';
@@ -41,6 +42,7 @@ class App extends Component {
             <div className="col-md-4 text-right">
               <Social
                 github="https://github.com/DefinityLabs"
+                linkedin="https://www.linkedin.com/company/definitylabs/"
                 twitter="https://twitter.com/DefinityLabs"
                 medium="http://content.definitylabs.org"
               />
