@@ -19,14 +19,14 @@ const installation = `
 <dependency>
   <groupId>org.definitylabs.flue2ent</groupId>
   <artifactId>flue2ent-core</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <scope>test</scope>
 </dependency>
 \`\`\`
 
 ### Gradle
 \`\`\`
-testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.1'
+testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.2'
 \`\`\`
 `;
 
@@ -96,6 +96,10 @@ Are you interested in discover more about this awesome tool?
 The complete [flue2ent reference documentation](#/products/flue2ent/docs) is available.
 `;
 
+const articles = `
+* [How to make end-to-end tests in Java being interesting](https://medium.com/definitylabs/how-to-make-end-to-end-tests-in-java-being-interesting-6449cc1175cc) _by David Sobreira Gouvea_
+`;
+
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/flue2ent).
 `;
@@ -113,6 +117,7 @@ const sections = [
   { title: 'Installation', icon: 'desktop', content: installation },
   { title: 'Getting Started', icon: 'star', content: gettingStarted },
   { title: 'User Guide', icon: 'user', content: userGuide },
+  { title: 'Articles', icon: 'bookmark', content: articles },
   { title: 'GitHub', icon: 'github', content: github },
   { title: 'Bugs & Features', icon: 'bug', content: bugs },
   { title: 'License', icon: 'certificate', content: license }

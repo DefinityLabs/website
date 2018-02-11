@@ -13,14 +13,14 @@ const installation = `
 <dependency>
   <groupId>org.definitylabs.flue2ent</groupId>
   <artifactId>flue2ent-core</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <scope>test</scope>
 </dependency>
 \`\`\`
 
 ### Gradle
 \`\`\`
-testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.1'
+testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.2'
 \`\`\`
 `;
 
@@ -607,6 +607,114 @@ website.justWait()
 \`\`\`
 `;
 
+const articles = `
+* [How to make end-to-end tests in Java being interesting](https://medium.com/definitylabs/how-to-make-end-to-end-tests-in-java-being-interesting-6449cc1175cc) _by David Sobreira Gouvea_
+`;
+
+const bdd = `
+[Behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development) or BDD is a technique that uses a simple DSL (Domain-Specific Language) using natural language constructs (e.g., English-like sentences) that can express the behavior and the expected outcomes.
+
+The BDD proposal from \`flue2ent\` is write the code as much similar as natural language. The flue2ent API provides a way to write test scenarios.
+`;
+
+const bddInstallation = `
+#### Maven
+\`\`\`
+<dependency>
+  <groupId>org.definitylabs.flue2ent</groupId>
+  <artifactId>flue2ent-test</artifactId>
+  <version>1.0.2</version>
+  <scope>test</scope>
+</dependency>
+\`\`\`
+
+#### Gradle
+\`\`\`
+testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-test', version: '1.0.2'
+\`\`\`
+`;
+
+const step = `
+\`\`\`
+public class GivenStepOne extends AbstractStep {
+  @Override
+  public void execute() {
+    ...
+  }
+}
+
+public class GivenStepTwo extends AbstractStep {
+  @Override
+  public void execute() {
+    ...
+  }
+}
+
+public class WhenStep extends AbstractStep {
+  @Override
+  public void execute() {
+    ...
+  }
+}
+
+public class ThenStep extends AbstractStep {
+  @Override
+  public void execute() {
+    ...
+  }
+}
+\`\`\`
+`;
+
+const scenario = `
+\`\`\`
+Website website = ...; // create website
+
+Scenario scenario = Scenario.title("My scenario {data.name}") // replaces by data property
+                                  .given(new GivenStepOne()).and(new GivenStepTwo())
+                                  .when(new WhenStep())
+                                  .then(new ThenStep())
+                                  .build();
+scenario.executeAt(website);
+\`\`\`
+
+Execute the same scenario for multiple data.
+\`\`\`
+Stream.of(dataOne, dataTwo, ...).forEach(item -> {
+  scenario.executeAt(website, item);
+});
+\`\`\`
+`;
+
+const junit5 = `
+The \`scenario\` creates a \`DynamicTest\`.
+
+\`\`\`
+public class UnitTest {
+
+  private Website website;
+
+  @Before
+  public void beforeEach() {
+    this.website = ...;
+  }
+
+  @TestFactory
+  public DynamicTest scenarioOne() {
+    Scenario scenario = ...;
+    return scenario.test(website);
+  }
+
+  @TestFactory
+  public List<DynamicTest> scenarioTwo() {
+    Scenario scenario = ...;
+    return scenario.test(website, Stream.of(dataOne, dataTwo, ...)); // creates one test per data object
+  }
+
+}
+\`\`\`
+`;
+
 const github = `
 This product is Open Source and you can find the source code on [GitHub](https://github.com/DefinityLabs/flue2ent).
 `;
@@ -652,6 +760,17 @@ const sections = [
   { title: '@FindElementBy Annotation', content: findElementBy },
   { title: 'ExtendedBy', content: extendedBy },
   { title: 'StaleElementReferenceException', content: staleElementReferenceException },
+  {
+    title: 'BDD',
+    content: bdd,
+    subItems: [
+      { title: 'Installation', content: bddInstallation },
+      { title: 'Step', content: step },
+      { title: 'Scenario', content: scenario },
+      { title: 'JUnit 5', content: junit5 },
+    ]
+  },
+  { title: 'Articles', content: articles },
   { title: 'GitHub', content: github },
   { title: 'Bugs & Features', content: bugs },
   { title: 'License', content: license }
