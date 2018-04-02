@@ -13,14 +13,14 @@ const installation = `
 <dependency>
   <groupId>org.definitylabs.flue2ent</groupId>
   <artifactId>flue2ent-core</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <scope>test</scope>
 </dependency>
 \`\`\`
 
 ### Gradle
 \`\`\`
-testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.2'
+testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.3'
 \`\`\`
 `;
 
@@ -395,7 +395,7 @@ website.javascript().executeAsync(script, args);
 `;
 
 const screenshotPlugin = `
-Takes a screenshot
+Takes a screenshot.
 
 \`\`\`
 // saves file at ./screenshots/screenshot_yyyyMMddHHmmssSSS.png
@@ -414,6 +414,88 @@ website.screenshot().takeAsFile(file -> {
 website.screenshot().takeAsBytes(bytes -> {
   ...
 });
+\`\`\`
+
+#### Resize
+Resize the screenshot by percentage.
+
+\`\`\`
+// resize the screenshot to 50%
+website.screenshot().takeAnd().resizeTo(50).getFile();
+
+// resize the screenshot to 200%
+website.screenshot().takeAnd().resizeTo(200).getFile();
+\`\`\`
+
+#### Crop
+Crop the screenshot image by area.
+
+\`\`\`
+// crop using ScreenshotRectangle
+website.screenshot().takeAnd().crop(rectangle(10, 50, 100, 30)).getFile();
+website.screenshot().takeAnd().crop(element(website.findElement(By.id("logo")))).getFile();
+\`\`\`
+
+**Mac Retina Users:** The screenshot is twice bigger than usual, for cropping you should resize the image first:
+\`\`\`
+website.screenshot().takeAnd()
+          .resizeTo(50)
+          .crop(element(website.findElement(By.id("logo"))))
+          .getFile();
+\`\`\`
+
+#### Adjust
+Adjust the screenshot image.
+
+\`\`\`
+// same as resize
+website.screenshot().takeAnd().adjust(size()).to(50).getFile();
+
+// same as crop
+website.screenshot().takeAnd().adjust(cropping()).area(rectangle(0, 0, 100, 60)).getFile();
+
+// custom
+class YourCustomClass {
+  private final BufferedImage image;
+  YourCustomClass(BufferedImage image) {
+    this.image = image;
+  }
+
+  ScreenshotImage sameImage() {
+    return new ScreenshotImage(image);
+  }
+}
+
+website.screenshot().takeAnd().adjust(YourCustomClass::new).sameImage().getFile();
+\`\`\`
+
+#### Compare
+Compare screenshot to another image.
+
+\`\`\`
+boolean equal = website.screenshot().takeAnd().compareTo(file).isEqual();
+
+// get the image highlighting the diff area
+website.screenshot().takeAnd().compareTo(file).image().getFile();
+website.screenshot().takeAnd().compareTo(file).image(highlightingArea()).getFile();
+website.screenshot().takeAnd().compareTo(file).image(highlightingArea(Color.BLUE)).getFile();
+
+// get the image highlighting all different pixels
+website.screenshot().takeAnd().compareTo(file).image(highlightingPixels()).getFile();
+website.screenshot().takeAnd().compareTo(file).image(highlightingPixels(Color.BLUE)).getFile();
+
+// get the image without highlight
+website.screenshot().takeAnd().compareTo(file).image(withoutHighlight()).getFile();
+
+// compare ignoring rectangle or element
+website.screenshot().takeAnd().compareTo(file).ignoring(rectangle(...)).image().getFile();
+website.screenshot().takeAnd().compareTo(file).ignoring(element(...)).image().getFile();
+
+// get image diff side by side
+website.screenshot().takeAnd().compareTo(file).imageSideBySide().getFile();
+
+// using custom comparator
+website.screenshot().takeAnd().compare(pixelByPixel()).image().getFile();
 \`\`\`
 `;
 
@@ -623,14 +705,14 @@ const bddInstallation = `
 <dependency>
   <groupId>org.definitylabs.flue2ent</groupId>
   <artifactId>flue2ent-test</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <scope>test</scope>
 </dependency>
 \`\`\`
 
 #### Gradle
 \`\`\`
-testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-test', version: '1.0.2'
+testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-test', version: '1.0.3'
 \`\`\`
 `;
 
@@ -767,7 +849,7 @@ const sections = [
       { title: 'Installation', content: bddInstallation },
       { title: 'Step', content: step },
       { title: 'Scenario', content: scenario },
-      { title: 'JUnit 5', content: junit5 },
+      { title: 'JUnit 5', content: junit5 }
     ]
   },
   { title: 'Articles', content: articles },

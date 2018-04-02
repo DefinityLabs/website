@@ -19,14 +19,14 @@ const installation = `
 <dependency>
   <groupId>org.definitylabs.flue2ent</groupId>
   <artifactId>flue2ent-core</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <scope>test</scope>
 </dependency>
 \`\`\`
 
 ### Gradle
 \`\`\`
-testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.2'
+testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.3'
 \`\`\`
 `;
 
