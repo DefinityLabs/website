@@ -13,14 +13,14 @@ const installation = `
 <dependency>
   <groupId>org.definitylabs.flue2ent</groupId>
   <artifactId>flue2ent-core</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <scope>test</scope>
 </dependency>
 \`\`\`
 
 ### Gradle
 \`\`\`
-testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.3'
+testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-core', version: '1.0.4'
 \`\`\`
 `;
 
@@ -350,6 +350,23 @@ website.justWait().upTo(10, TimeUnit.SECONDS).pollingEvery(1, TimeUnit.SECONDS).
 
 // ignores exception
 website.justWait().ignoring(StaleElementReferenceException.class).until(website.hasFound(element(By.tagName("h1"))));
+\`\`\`
+`;
+
+const windowPlugin = `
+Plugin responsible for managing the window size.
+
+\`\`\`
+// window fullscreen
+website.window().fullscreen();
+
+// window maximize
+website.window().maximize();
+
+// window size
+website.window().size(800, 600);
+website.window().size(Device.IPHONE.landscape());
+website.window().size(Device.IPAD.portrait());
 \`\`\`
 `;
 
@@ -708,14 +725,14 @@ const bddInstallation = `
 <dependency>
   <groupId>org.definitylabs.flue2ent</groupId>
   <artifactId>flue2ent-test</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <scope>test</scope>
 </dependency>
 \`\`\`
 
 #### Gradle
 \`\`\`
-testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-test', version: '1.0.3'
+testCompile group: 'org.definitylabs.flue2ent', name: 'flue2ent-test', version: '1.0.4'
 \`\`\`
 `;
 
@@ -834,6 +851,7 @@ const sections = [
     subItems: [
       { title: 'Page', content: pagePlugin },
       { title: 'Waiter', content: waiterPlugin },
+      { title: 'Window', content: windowPlugin },
       { title: 'Scroll', content: scrollPlugin },
       { title: 'JavaScript', content: javascriptPlugin },
       { title: 'Screenshot', content: screenshotPlugin },
