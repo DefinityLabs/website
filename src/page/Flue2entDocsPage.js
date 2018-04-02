@@ -372,6 +372,9 @@ website.scroll().bottom();
 
 Scroll to or by a predefined position.
 \`\`\`
+// scroll to element
+website.scroll().to(website.findElement(By.id("logo")));
+
 // javascript window.scrollTo(x, y)
 website.scroll().to(x, y);
 
